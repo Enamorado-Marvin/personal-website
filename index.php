@@ -13,7 +13,7 @@
   	<!-- JQuery -->
   	<script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
   	<!-- Site Style -->
   	<link rel="stylesheet" href="css/style.css">
 	<title>Personal Homepage</title>
