@@ -12,6 +12,8 @@
   	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   	<!-- JQuery -->
   	<script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   	<!-- Site Style -->
   	<link rel="stylesheet" href="css/style.css">
 	<title>Personal Homepage</title>
