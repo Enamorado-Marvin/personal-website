@@ -8,7 +8,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <img src="img/familia.jpg" class="img-fluid rotar">
+        <img src="img/familia.jpg" class="img-fluid rotar" alt="Family photo">
       </div>
       <div class="col-sm-6">
         <h1 class="orange">Family and Coding</h1>
