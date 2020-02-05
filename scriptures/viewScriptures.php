@@ -41,7 +41,7 @@ $db = get_db();
 // Notice that we avoid using "SELECT *" here. This is considered
 // good practice so we don't inadvertently bring back data we don't
 // want, especially if the database changes later.
-$statement = $db->prepare("SELECT book, chapter, verse, content FROM scripture");
+$statement = $db->prepare("SELECT book, chapter, verse FROM scripture");
 $statement->execute();
 
 // Go through each result
@@ -53,9 +53,8 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	$book = $row['book'];
 	$chapter = $row['chapter'];
 	$verse = $row['verse'];
-	$content = $row['content'];
 
-	echo "<p><strong>$book $chapter:$verse</strong> - \"$content\"<p>";
+	echo "<p><strong>$book $chapter:$verse</strong> - \"<p>";
 }
 
 ?>
