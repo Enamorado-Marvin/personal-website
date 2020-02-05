@@ -54,7 +54,7 @@ while ($row = $statement->fetch(PDO::FETCH_ASSOC))
 	$chapter = $row['chapter'];
 	$verse = $row['verse'];
 
-	echo "<p><strong>$book $chapter:$verse</strong> - \"<p>";
+	echo "<p><strong>$book $chapter:$verse</strong><p>";
 }
 
 ?>
