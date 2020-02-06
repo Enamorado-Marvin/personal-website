@@ -11,7 +11,7 @@
 function get_db() {
 	$db = NULL;
 
-	/*try {
+	try {
 		// default Heroku Postgres configuration URL
 		$dbUrl = getenv('DATABASE_URL');
 
@@ -54,9 +54,9 @@ function get_db() {
 	}
 
 	return $db;
-*/
-	
-	try
+
+
+	/*try
 	{
 	  $user = 'postgres';
 	  $password = 'password';
@@ -73,5 +73,5 @@ function get_db() {
 	  die();
 	}
 
-	return $db;
+	return $db;*/
 }
