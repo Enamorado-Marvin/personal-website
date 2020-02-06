@@ -29,5 +29,6 @@ $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			}
 		?>
 		</ul>
+		<a href="index.php">Go back to search form</a>
 </body>
 </html>
