@@ -3,8 +3,9 @@ require "dbConnect.php";
 $db = get_db();
 $book = filter_input(INPUT_POST, 'book');
 //SELECT id, book, chapter, verse, content FROM scriptureBD;
-$query = 'SELECT book, chapter, verse, content FROM scripture WHERE book = '.$book;
+$query = 'SELECT book, chapter, verse, content FROM scripture WHERE book = :book';
 $stmt = $db->prepare($query);
+$stmt->bindValue(':book', $book);
 $stmt->execute();
 $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
