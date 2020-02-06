@@ -2,7 +2,7 @@
 $scripture_id = htmlspecialchars($_GET['scripture_id']);
 require "dbConnect.php";
 $db = get_db();
-$stmt = $db->prepare('SELECT book, chapter, verse, content FROM scriptureBD WHERE id = :id');
+$stmt = $db->prepare('SELECT book, chapter, verse, content FROM scripture WHERE id = :id');
 $stmt->bindValue(':id', $scripture_id, PDO::PARAM_INT);
 $stmt->execute();
 $scriptures = $stmt->fetchAll(PDO::FETCH_ASSOC);
