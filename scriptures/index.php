@@ -8,7 +8,7 @@
 	<form method="post" action="viewScriptures.php">
 		<label>Enter the name of the book: </label>
 		<input type="text" name="book">
-		<input type="button" value="Search">
+		<input type="submit" value="Search">
 	</form>
 </body>
 </html>
