@@ -68,3 +68,6 @@ hr{
   background-repeat: no-repeat;
   background-size: cover;
 }
+.over {
+  z-index: 20;
+}

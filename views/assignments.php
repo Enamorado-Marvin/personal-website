@@ -1,10 +1,11 @@
 
-<div class="bg bg-cover">
+<div class="bg">
 	<div class="overlay"></div>
 	<div class="clearfix">
-    <div class="container">
-      <h1 class="display-3 mb-1 pt-lg-5">COMING SOON</h1>    
-      <p class="lead">Completed assignments will be <span>here.</span></p>
+    <div class="container over">
+      <h1 class="display-3 mb-1 pt-lg-5 text-white">COMPLETED ASSIGNMENTS</h1>    
+      <p class="lead">Assignments:</p>
+      <a href="Sacrament-meeting/">Sacrament Meeting Planner</a>
     </div>
 	</div>
   </div>
