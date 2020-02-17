@@ -13,7 +13,7 @@
   <title>Sacrament Meeting Planner</title>
 
   <!-- Bootstrap Core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">  
 
   <!-- Custom Fonts -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,6 +25,8 @@
 
   <!-- My CSS file -->
   <link href="css/style.css" rel="stylesheet">
+
+  
 
 </head>
 
@@ -39,7 +41,7 @@
   <!-- Footer -->
   <footer class="footer text-center">
     <div class="container">
-      <p class="text-muted small mb-0">Copyright &copy; Sacrament Meeting Agenda</p>
+      <p class="text-muted small mb-0">Copyright &copy; 2020 Sacrament Meeting Planner</p>
     </div>
   </footer>
 
@@ -51,12 +53,49 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap-datepicker.min.js"></script>
 
   <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for this template -->
   <script src="js/stylish-portfolio.min.js"></script>
+
+  <!-- My own scripts -->
+  <script src="js/script.js"></script>
+
+
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>  
+
+  <script type="text/javascript">           
+           
+            var fechaHoy = new Date();
+            $(document).ready(function(){
+                var date_input=$('input[id="date"]');
+                var options={
+                    format: 'mm/dd/yyyy',
+                    language: "en",
+                    numberOfMonths: 2,
+                    todayHighlight: true,
+                    autoclose: true,
+                    minDate: 0
+                };
+                date_input.datepicker(options);
+              });
+           $('#dateIniPick').datetimepicker({
+                format: 'DD/MM/YYYY',
+                ignoreReadonly: true,
+                allowInputToggle: true
+            });
+
+  </script>
+  <script>
+    $(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+    });
+  </script>
 
 </body>
 

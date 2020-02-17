@@ -4,12 +4,16 @@
     <!-- Header -->
     <div class="container pt-lg-5">    	
 	    <section id="page-top">
-	        <header class="d-flex">
+	    	<p>Welcome <?php echo $_SESSION["display_name"].", ".$calling; ?></p>
+	        <header class="">
+	        	
 	            <h1>Sacrament Meeting History</h1>	            
 	        </header>
 	    </section>
 	    <section>
-	    	<p>Welcome <?php echo $_SESSION["display_name"]; ?></p>
+	    	<div class="mb-4"></div>
+	    	<a href="?action=create-new-agenda-page" class="btn btn-primary">Create New Agenda</a>
+	    	<div class="mb-4"></div>
 	    	<table class="table">
 			  <thead>
 			    <tr>

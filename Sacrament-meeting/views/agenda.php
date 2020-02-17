@@ -20,12 +20,20 @@
                 <div class="col col-8"><?php echo $value["directing_leader"]; ?></div>
                 <div class="col col-4">Announcements:</div>
                 <div class="col col-8"><?php echo $value["announcements"]; ?></div>
-                <div class="col col-4">Hymns:</div>
-                <div class="col col-8"><?php echo $value["hymns"]; ?></div>
+                <div class="col col-4">Opening Hymn:</div>
+                <div class="col col-8"><?php echo $value["opening_hymn"]; ?></div>
                 <div class="col col-4">Opening Prayer:</div>
                 <div class="col col-8"><?php echo $value["opening_prayer"]; ?></div>
+                <div class="col col-4">Ward Businesses:</div>
+                <div class="col col-8"><?php echo $value["ward_business"]; ?></div>
+                <div class="col col-4">Sacrament Hymn:</div>
+                <div class="col col-8"><?php echo $value["sacrament_hymn"]; ?></div>
+                <div class="col col-4">Special Hymn:</div>
+                <div class="col col-8"><?php echo $value["special_hymn"]; ?></div>
                 <div class="col col-4">Speakers:</div>
                 <div class="col col-8"><?php echo $value["speakers"]; ?></div>
+                <div class="col col-4">Closing Hymn:</div>
+                <div class="col col-8"><?php echo $value["closing_hymn"]; ?></div>
                 <div class="col col-4">Closing Prayer:</div>
                 <div class="col col-8"><?php echo $value["closing_prayer"]; ?></div>
             </div>

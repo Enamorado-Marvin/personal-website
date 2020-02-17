@@ -3,4 +3,12 @@
 	width: 400px;
 	background-color: #fff;
 	padding: 20px;
-}	
+}
+
+.newsize {
+    font-size: smaller;
+}
+
+td.tabst {
+    padding: .55rem !important;
+}
