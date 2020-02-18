@@ -5,8 +5,7 @@
     <div class="container pt-lg-5">     
       <section id="page-top">
         <p>Welcome <?php echo $_SESSION["display_name"].", ".$calling; ?></p>
-          <header class="">
-            
+          <header class="">            
               <h1>Create New Agenda</h1>           
           </header>
       </section>
