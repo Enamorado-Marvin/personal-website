@@ -124,7 +124,7 @@ switch ($action) {
                           'closing_hymn' => $_POST['closing_hymn']);
 
             $response = add_agenda($table, $data);
-            if($response == "ok"){
+            /*if($response == "ok"){
 
                     echo'<script>
 
@@ -155,13 +155,13 @@ switch ($action) {
                           }).then(function(result){
                             if (result.value) {
 
-                            window.location = "productos";
+                            window.location = ".?action=home-agendas";
 
                             }
                         })
 
                 </script>';
-            }
+            }*/
 
             header("Location: .?action=home-agendas");
         }else{
