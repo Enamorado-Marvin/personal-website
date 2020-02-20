@@ -11,7 +11,7 @@
 function get_db() {
 	$db = NULL;
 
-	/*try {
+	try {
 	// 	// default Heroku Postgres configuration URL
 	$dbUrl = getenv('DATABASE_URL');
 
@@ -38,11 +38,11 @@ function get_db() {
 	ie();
 	}
 
-	return $db;*/
+	return $db;
 
 
 try
-	{
+	/*{
 	  $user = 'postgres';
 	  $password = 'inlove1982';
 	  $db = new PDO('pgsql:host=localhost;dbname=agenda', $user, $password);
@@ -57,5 +57,5 @@ try
 	  echo 'Error!: ' . $ex->getMessage();
 	  die();
 	}
-	return $db;
+	return $db;*/
 }
