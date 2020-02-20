@@ -41,8 +41,8 @@ function get_db() {
 	return $db;
 
 
-try
-	/*{
+/*try
+	{
 	  $user = 'postgres';
 	  $password = 'inlove1982';
 	  $db = new PDO('pgsql:host=localhost;dbname=agenda', $user, $password);
