@@ -98,6 +98,10 @@ switch ($action) {
         if ($_SESSION["startSession"] == "ok") { 
             $calling = $_SESSION['calling'];
             $content = "views/create-agenda.php";
+            $item = null;
+            $valor = null;
+            $table = "public.hymns";
+            $hymns = get_hymns($table, $item, $valor);
             include "views/template.php";
         }else{
             header("Location: .?action=homepage");
@@ -109,8 +113,11 @@ switch ($action) {
         if ($_SESSION["startSession"] == "ok") { 
             $calling = $_SESSION['calling'];
             $table = "public.agenda";
+            $agendaDate = $_POST['agenda_date'];
+            $f_1 = str_replace('/', '-', $agendaDate);
+            $agenda_date = date('Y-m-d', strtotime($f_1));
             $data = array('user_id' => $_POST['user_id'],
-                          'agenda_date' => $_POST['agenda_date'],
+                          'agenda_date' => $agenda_date,
                           'presiding_leader' => $_POST['presiding_leader'],
                           'directing_leader' => $_POST['directing_leader'],
                           'announcements' => $_POST['announcements'],

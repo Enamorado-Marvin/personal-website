@@ -22,6 +22,8 @@
 
   <!-- Custom CSS -->
   <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+  <!-- CSS -->
+  <link href='css/select2.min.css' rel='stylesheet' type='text/css'>
 
   <!-- My CSS file -->
   <link href="css/style.css" rel="stylesheet">
@@ -57,6 +59,10 @@
 
   <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- SweetAlert 2 -->
+  <script src="vendor/sweetalert2/sweetalert2.all.js"></script>
+   <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
   <!-- Custom scripts for this template -->
   <script src="js/stylish-portfolio.min.js"></script>
@@ -68,6 +74,7 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>  
+  <script src='js/select2.min.js' type='text/javascript'></script>
 
   <script type="text/javascript">           
            
@@ -94,6 +101,17 @@
   <script>
     $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
+    });
+  </script>
+  <script>
+  $(document).ready(function(){
+    $("#openingHymn").select2();
+    });
+  $(document).ready(function(){
+    $("#sacramentHymn").select2();
+    });
+  $(document).ready(function(){
+    $("#closingHymn").select2();
     });
   </script>
 

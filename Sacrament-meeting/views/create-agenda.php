@@ -59,70 +59,16 @@
 
                 </div>                
 
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control input-lg" placeholder="Opening Hymn" aria-label="Opening Hymn" id="openingHymn" name="opening_hymn" aria-describedby="basic-addon2" readonly>
-                  <div class="input-group-append">
-                    <p>
-                      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Select Hymn
-                      </a>                      
-                    </p>
-                    </div>
-                    <div class="collapse" id="collapseExample">
-                      <div class="card card-body">
+                <div class="input-group mb-3">                 
+                  <select class="form-control input-lg" id="openingHymn" name="opening_hymn">
+                    <option value="">Opening hymn</option>
+                    <?php foreach ($hymns as $key => $value): ?>
 
-                        <div class="box-body">
-        
-                         <table class="table table-bordered table-striped dt-responsive tableHymns" width="100%">
-                           
-                          <thead>
-                           
-                           <tr>                             
-                             <th>#</th>
-                             <th>Name</th>
-                             <th>Action</th>
-                           </tr> 
+                      <option value="<?php echo $value["hymn_number"]." ".$value["hymn_name"]?>"><?php echo $value["hymn_number"]." ".$value["hymn_name"]?></option>
 
-                          </thead>
-                          <tbody>
-                            <?php
-
-                            $item = null;
-                            $valor = null;
-                            $table = "public.hymns";
-
-                            $hymns = get_hymns($table, $item, $valor);
-
-                            foreach ($hymns as $key => $value) {
-                              $idHymn = $value["id"];
-                              echo '<tr>
-
-                              <td class="tabst">'.$value["hymn_number"].'</td>
-
-                              <td class="tabst">'.$value["hymn_name"].'</td>
-                              <td class="tabst">
-
-                                <div class="btn-group">
-                                    
-                                  <p class="btn btn-success newsize addHymn" id="id" numberHymn="'.$value["hymn_number"].'" nameHymn="'.$value["hymn_name"].'" onclick="changeText()">Add</p>';
-                                echo '</div>
-
-                              </td>
-
-                              </tr>';
-
-                            }
-
-                            ?>
-
-                          </tbody>    
-
-                         </table>
-                      </div>
-                    </div>
-                  
+                     <?php endforeach; ?>
+                  </select>
                 </div>
-              </div> 
 
                 <div class="form-group">
                   
@@ -144,11 +90,15 @@
 
                 </div>
 
-                <div class="form-group">
-                  
-                  <div class="input-group">
-                    <input type="text" class="form-control input-lg" name="sacrament_hymn" placeholder="Sacrament Hymn">
-                  </div>
+                <div class="input-group mb-3">                  
+                  <select class="form-control input-lg" id="sacramentHymn" name="sacrament_hymn">
+                    <option value="">Sacrament hymn</option>
+                    <?php foreach ($hymns as $key => $value): ?>
+
+                      <option value="<?php echo $value["hymn_number"]." ".$value["hymn_name"]?>"><?php echo $value["hymn_number"]." ".$value["hymn_name"]?></option>
+
+                     <?php endforeach; ?>
+                  </select>
                 </div>
 
                 <div class="form-group">
@@ -169,12 +119,16 @@
                   </div>
                 </div>
 
-                <div class="form-group">
-                  
-                  <div class="input-group">
-                    <input type="text" class="form-control input-lg" name="closing_hymn" placeholder="Closing Hymn">
-                  </div>
-                </div>                      
+                <div class="input-group mb-3">                  
+                  <select class="form-control input-lg" id="closingHymn" name="closing_hymn">
+                    <option value="">Closing hymn</option>
+                    <?php foreach ($hymns as $key => $value): ?>
+
+                      <option value="<?php echo $value["hymn_number"]." ".$value["hymn_name"]?>"><?php echo $value["hymn_number"]." ".$value["hymn_name"]?></option>
+
+                     <?php endforeach; ?>
+                  </select>
+                </div>                    
 
                 <div class="form-group">
                   
