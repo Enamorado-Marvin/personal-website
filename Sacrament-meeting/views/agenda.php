@@ -41,10 +41,10 @@
             <div class="mb-4"></div> 
             <div class="row">
                 <div class="col col-2">
-                    <a href="?action=edit-agenda" class="btn btn-warning btn-block">Edit</a>
+                    <a href="?action=edit-agenda-page&id=<?php echo $value['id']; ?>" class="btn btn-warning btn-block">Edit</a>
                 </div>
                 <div class="col col-2">
-                    <a href="?action=delete-agenda" class="btn btn-danger btn-block">Delete</a>
+                    <a href="?action=delete-agenda&id=<?php echo $value['id']; ?>" class="btn btn-danger btn-block">Delete</a>
                 </div>            
             </div>
         </section>

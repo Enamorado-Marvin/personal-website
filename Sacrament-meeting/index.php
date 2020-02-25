@@ -177,6 +177,63 @@ switch ($action) {
         
         break;
 
+    case 'edit-agenda-page':
+        if ($_SESSION["startSession"] == "ok") {
+            $calling = $_SESSION['calling'];
+            $content = "views/edit-agenda.php";
+            $item = "id";
+            $value = filter_input(INPUT_GET, 'id');
+            $table = "public.agenda";
+            $agendas = get_agendas($table, $item, $value);
+            include "views/template.php";
+        }else{
+            header("Location: .?action=homepage");
+        }
+        
+        break;
+
+    case 'save-changes-agenda':
+        if ($_SESSION["startSession"] == "ok") { 
+            $calling = $_SESSION['calling'];
+            $table = "public.agenda";
+            $agendaDate = $_POST['agenda_date'];
+            $f_1 = str_replace('/', '-', $agendaDate);
+            $agenda_date = date('Y-m-d', strtotime($f_1));
+            $data = array('id' => $_GET['id'],
+                          'user_id' => $_POST['user_id'],
+                          'agenda_date' => $agenda_date,
+                          'presiding_leader' => $_POST['presiding_leader'],
+                          'directing_leader' => $_POST['directing_leader'],
+                          'announcements' => $_POST['announcements'],
+                          'opening_hymn' => $_POST['opening_hymn'],
+                          'special_hymn' => $_POST['special_hymn'],
+                          'opening_prayer' => $_POST['opening_prayer'],
+                          'speakers' => $_POST['speakers'],
+                          'closing_prayer' => $_POST['closing_prayer'],
+                          'ward_business' => $_POST['ward_business'],
+                          'sacrament_hymn' => $_POST['sacrament_hymn'],
+                          'closing_hymn' => $_POST['closing_hymn']);
+
+            $response = update_agenda($table, $data);
+            header("Location: .?action=home-agendas");
+        }else{
+            header("Location: .?action=homepage");
+        }
+        
+        break;
+
+    case 'delete-agenda':
+        if ($_SESSION["startSession"] == "ok") {
+            $table = "public.agenda";
+            $data = filter_input(INPUT_GET, "id");
+            $response = delete_agenda($table, $data);
+            header("Location: .?action=home-agendas");
+        }else{
+            header("Location: .?action=homepage");
+        }
+        
+        break;
+
     case 'logout':
         session_destroy();
         header("Location: .?action=homepage");

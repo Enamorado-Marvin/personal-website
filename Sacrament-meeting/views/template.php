@@ -82,7 +82,7 @@
             $(document).ready(function(){
                 var date_input=$('input[id="date"]');
                 var options={
-                    format: 'mm/dd/yyyy',
+                    format: 'yyyy/mm/dd',
                     language: "en",
                     numberOfMonths: 2,
                     todayHighlight: true,
@@ -92,7 +92,7 @@
                 date_input.datepicker(options);
               });
            $('#dateIniPick').datetimepicker({
-                format: 'DD/MM/YYYY',
+                format: 'YYYY/MM/DD',
                 ignoreReadonly: true,
                 allowInputToggle: true
             });

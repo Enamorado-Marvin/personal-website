@@ -6,15 +6,16 @@
       <section id="page-top">
         <p>Welcome <?php echo $_SESSION["display_name"].", ".$calling; ?></p>
           <header class="">            
-              <h1>Create New Agenda</h1>           
+              <h1>Edit Agenda</h1>           
           </header>
       </section>
       <div class="row">
         <div class="col col-md-5">
           <section>
             <div class="mb-4"></div>
+            <?php foreach ($agendas as $key => $value): ?>
               <form role="form" method="post">
-                <input type="hidden" name="action" value="create-new-agenda">
+                <input type="hidden" name="action" value="save-changes-agenda">
                 <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
                 
                 <div class="form-group">
@@ -23,7 +24,7 @@
 
                     <!-- <input type="text" class="form-control input-lg" name="agenda_date" placeholder="Sacrament Meeting Date" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required> -->
 
-                    <input type="text" id="date" name="agenda_date" class="form-control input-lg" placeholder="Sacrament Meeting Date" readonly="true">
+                    <input type="text" id="date" name="agenda_date" class="form-control input-lg" placeholder="Sacrament Meeting Date" value="<?php echo $value['agenda_date'] ?>" readonly="true">
 
                   </div>
 
@@ -33,7 +34,7 @@
                   
                   <div class="input-group">
 
-                    <input type="text" class="form-control input-lg" name="presiding_leader" placeholder="Presiding leader">
+                    <input type="text" class="form-control input-lg" name="presiding_leader" value="<?php echo $value['presiding_leader'] ?>">
 
                   </div>
 
@@ -43,7 +44,7 @@
                   
                   <div class="input-group">
 
-                    <input type="text" class="form-control input-lg" name="directing_leader" placeholder="directing leader">
+                    <input type="text" class="form-control input-lg" name="directing_leader" value="<?php echo $value['directing_leader'] ?>">
 
                   </div>
 
@@ -53,82 +54,33 @@
                   
                   <div class="input-group">
 
-                    <textarea class="form-control input-lg" name="announcements" placeholder="Announcements (optional)"></textarea>
+                    <textarea class="form-control input-lg" name="announcements"><?php echo $value['announcements'] ?></textarea>
 
                   </div>
 
                 </div>                
 
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control input-lg" placeholder="Opening Hymn" aria-label="Opening Hymn" id="openingHymn" name="opening_hymn" aria-describedby="basic-addon2" readonly>
-                  <div class="input-group-append">
-                    <p>
-                      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Select Hymn
-                      </a>                      
-                    </p>
-                    </div>
-                    <div class="collapse" id="collapseExample">
-                      <div class="card card-body">
+                <div class="input-group mb-3">                 
+                  <select class="form-control input-lg" id="openingHymn" name="opening_hymn">
+                    <option value="<?php echo $value['opening_hymn'] ?>"><?php echo $value['opening_hymn'] ?></option>
+                    <?php
+                      $item = null;
+                      $valor = null;
+                      $table = "public.hymns";
+                      $hymns = get_hymns($table, $item, $valor);
+                     foreach ($hymns as $hymn): ?>
 
-                        <div class="box-body">
-        
-                         <table class="table table-bordered table-striped dt-responsive tableHymns" width="100%">
-                           
-                          <thead>
-                           
-                           <tr>                             
-                             <th>#</th>
-                             <th>Name</th>
-                             <th>Action</th>
-                           </tr> 
+                      <option value="<?php echo $hymn["hymn_number"]." ".$hymn["hymn_name"]?>"><?php echo $hymn["hymn_number"]." ".$hymn["hymn_name"]?></option>
 
-                          </thead>
-                          <tbody>
-                            <?php
-
-                            $item = null;
-                            $valor = null;
-                            $table = "public.hymns";
-
-                            $hymns = get_hymns($table, $item, $valor);
-
-                            foreach ($hymns as $key => $value) {
-                              $idHymn = $value["id"];
-                              echo '<tr>
-
-                              <td class="tabst">'.$value["hymn_number"].'</td>
-
-                              <td class="tabst">'.$value["hymn_name"].'</td>
-                              <td class="tabst">
-
-                                <div class="btn-group">
-                                    
-                                  <p class="btn btn-success newsize addHymn" id="id" numberHymn="'.$value["hymn_number"].'" nameHymn="'.$value["hymn_name"].'" onclick="changeText()">Add</p>';
-                                echo '</div>
-
-                              </td>
-
-                              </tr>';
-
-                            }
-
-                            ?>
-
-                          </tbody>    
-
-                         </table>
-                      </div>
-                    </div>
-                  
+                     <?php endforeach; ?>
+                  </select>
                 </div>
-              </div> 
 
                 <div class="form-group">
                   
                   <div class="input-group">
 
-                    <input type="text" class="form-control input-lg" name="opening_prayer" placeholder="Opening Prayer">
+                    <input type="text" class="form-control input-lg" name="opening_prayer" value="<?php echo $value['opening_prayer'] ?>">
 
                   </div>
 
@@ -138,17 +90,26 @@
                   
                   <div class="input-group">
 
-                    <textarea class="form-control input-lg" name="ward_business" placeholder="Ward Businesses (optional)"></textarea>
+                    <textarea class="form-control input-lg" name="ward_business"><?php echo $value['ward_business'] ?></textarea>
 
                   </div>
 
                 </div>
 
-                <div class="form-group">
-                  
-                  <div class="input-group">
-                    <input type="text" class="form-control input-lg" name="sacrament_hymn" placeholder="Sacrament Hymn">
-                  </div>
+                <div class="input-group mb-3">                  
+                  <select class="form-control input-lg" id="sacramentHymn" name="sacrament_hymn">
+                    <option value="<?php echo $value['sacrament_hymn'] ?>"><?php echo $value['sacrament_hymn'] ?></option>
+                    <?php
+                      $item = null;
+                      $valor = null;
+                      $table = "public.hymns";
+                      $hymns = get_hymns($table, $item, $valor);
+                     foreach ($hymns as $hymn): ?>
+
+                      <option value="<?php echo $hymn["hymn_number"]." ".$hymn["hymn_name"]?>"><?php echo $hymn["hymn_number"]." ".$hymn["hymn_name"]?></option>
+
+                     <?php endforeach; ?>
+                  </select>
                 </div>
 
                 <div class="form-group">
@@ -165,22 +126,31 @@
                 <div class="form-group">
                   
                   <div class="input-group">
-                    <input type="text" class="form-control input-lg" name="special_hymn" placeholder="Special Hymn (optional)">
+                    <input type="text" class="form-control input-lg" name="special_hymn" value="<?php echo $value['special_hymn'] ?>">
                   </div>
                 </div>
 
-                <div class="form-group">
-                  
-                  <div class="input-group">
-                    <input type="text" class="form-control input-lg" name="closing_hymn" placeholder="Closing Hymn">
-                  </div>
-                </div>                      
+                <div class="input-group mb-3">                  
+                  <select class="form-control input-lg" id="closingHymn" name="closing_hymn">
+                    <option value="<?php echo $value['closing_hymn'] ?>"><?php echo $value['closing_hymn'] ?></option>
+                    <?php
+                      $item = null;
+                      $valor = null;
+                      $table = "public.hymns";
+                      $hymns = get_hymns($table, $item, $valor);
+                     foreach ($hymns as $hymn): ?>
+
+                      <option value="<?php echo $hymn["hymn_number"]." ".$hymn["hymn_name"]?>"><?php echo $hymn["hymn_number"]." ".$hymn["hymn_name"]?></option>
+
+                     <?php endforeach; ?>
+                  </select>
+                </div>                    
 
                 <div class="form-group">
                   
                   <div class="input-group">
 
-                    <input type="text" class="form-control input-lg" name="closing_prayer" placeholder="Closing Prayer">
+                    <input type="text" class="form-control input-lg" name="closing_prayer" value="<?php echo $value['closing_prayer'] ?>">
 
                   </div>
 
@@ -189,6 +159,7 @@
               <button type="submit" class="btn btn-primary">Save Agenda</button>
 
             </form>
+          <?php endforeach; ?>
           </section>
         </div>
         <div class="col col-md-7">
